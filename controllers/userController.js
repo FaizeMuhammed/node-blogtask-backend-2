@@ -2,7 +2,7 @@ const User = require('../models/User');
 
 exports.getAllUsers = async (req, res) => {
     try {
-        const users = await User.find().select('-password'); // Exclude password field
+        const users = await User.find().select('-password');
         res.json(users);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -30,7 +30,7 @@ exports.updateUser = async (req, res) => {
             return res.status(404).json({ message: 'User not found' });
         }
 
-        // Update user fields if provided
+        
         if (username) user.username = username;
         if (email) user.email = email;
         if (role) user.role = role;

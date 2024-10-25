@@ -9,7 +9,7 @@ const postSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ['travel', 'food', 'technology'] // Add more categories as needed
+    enum: ['travel', 'food', 'technology'] 
   },
   publishingDate: {
     type: Date,

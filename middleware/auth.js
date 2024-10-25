@@ -3,6 +3,8 @@ const User=require('../models/User')
 
 exports.protect=async(req,res,next)=>{
     try{
+        console.log("vgcgcgcg",req.cookies);
+        
         const token=req.cookies.token
 
         if(!token){

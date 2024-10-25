@@ -12,7 +12,10 @@ const app = express();
 // CORS configuration
 app.use(cors({
   origin: process.env.FRONTEND_URL, // Allow requests from your frontend URL
-  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+  credentials: true, 
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Cookie'],
+  exposedHeaders: ['set-cookie'],
 }));
 
 app.use(express.json());
@@ -30,6 +33,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 app.use('/api/auth', authRoutes);
 app.use('/api/posts', postRoutes);
 app.use('/api/users', userRoutes);
+
 
 // Listening and Connecting to Port
 const PORT = process.env.PORT || 5000;
