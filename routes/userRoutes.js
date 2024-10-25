@@ -11,7 +11,7 @@ const { protect, admin } = require('../middleware/auth');
 
 const router = express.Router();
 
-router.get('/',protect,  getAllUsers);
+router.get('/',  getAllUsers);
 router.get('/:id', protect, admin, getUserById);
 router.put('/:id', protect, admin, updateUser);
 router.delete('/:id', protect, admin, deleteUser);

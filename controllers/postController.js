@@ -2,14 +2,14 @@ const Post = require('../models/Post');
 
 exports.createPost = async (req, res) => {
     try {
-        const { title, category, publishingDate, authorName, paragraphs } = req.body;
+        const { title, category, publishingDate, authorName, paragraphs,author } = req.body;
         const post = await Post.create({
             title,
             category,
             publishingDate,
             authorName,
             paragraphs,
-            author: req.user._id
+            author
         });
         res.status(201).json(post);
     } catch (error) {

@@ -14,7 +14,7 @@ const { protect, admin } = require('../middleware/auth');
 
 const router = express.Router();
 
-router.post('/', protect, createPost);
+router.post('/',  createPost);
 router.get('/', getAllPosts);
 router.get('/:id', getPostById);
 router.put('/:id', protect, updatePost);
