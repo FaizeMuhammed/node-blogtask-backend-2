@@ -2,14 +2,19 @@ const Post = require('../models/Post');
 
 exports.createPost = async (req, res) => {
     try {
-        const { title, category, publishingDate, authorName, paragraphs,author } = req.body;
+        const { title, category, publishingDate, authorName, paragraphs } = req.body;
+        console.log('userid',req.user.id);
+        console.log(title, category, publishingDate, authorName, paragraphs);
+        
+        
+        
         const post = await Post.create({
             title,
             category,
             publishingDate,
             authorName,
             paragraphs,
-            author
+            author:req.user.id
         });
         res.status(201).json(post);
     } catch (error) {
